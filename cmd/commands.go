@@ -1,12 +1,14 @@
 package cmd
 
+import "github.com/mbilaljawwad/pokedexcli/config"
+
 type cliCommand struct {
 	Name        string
 	Description string
-	Callback    func() error
+	Callback    func(conf *config.Config) error
 }
 
-func GetCliCommands() map[string]cliCommand {
+func GetCliCommands(conf *config.Config) map[string]cliCommand {
 	return map[string]cliCommand{
 		"help": {
 			Name:        "help",
@@ -17,6 +19,16 @@ func GetCliCommands() map[string]cliCommand {
 			Name:        "exit",
 			Description: "Exits the pokedexcli",
 			Callback:    exitCommand,
+		},
+		"map": {
+			Name:        "map",
+			Description: "Shows forward set of maps of the pokemon world by calling Locations API",
+			Callback: mapCommand,
+		},
+		"mapb": {
+			Name:        "mapb",
+			Description: "Shows previous set of maps of the pokemon world by calling Locations API",
+			Callback: mapBackCommand,
 		},
 	}
 }

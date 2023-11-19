@@ -1,8 +1,12 @@
 package cmd
 
-import "os"
+import (
+	"os"
 
-func exitCommand() error {
+	"github.com/mbilaljawwad/pokedexcli/config"
+)
+
+func exitCommand(conf *config.Config) error {
 	os.Exit(0)
 	return nil
 }
