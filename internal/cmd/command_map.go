@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/mbilaljawwad/pokedexcli/api"
 	"github.com/mbilaljawwad/pokedexcli/config"
+	"github.com/mbilaljawwad/pokedexcli/internal/api"
 	"github.com/savioxavier/termlink"
 )
 

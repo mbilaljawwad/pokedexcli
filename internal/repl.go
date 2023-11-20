@@ -6,14 +6,15 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mbilaljawwad/pokedexcli/cmd"
 	"github.com/mbilaljawwad/pokedexcli/config"
+	"github.com/mbilaljawwad/pokedexcli/internal/cmd"
 )
 
 func StartRepl() {
 	config := config.ReadConfig()
 	scanner := bufio.NewScanner(os.Stdin)
 	commands := cmd.GetCliCommands(&config)
+
 	for {
 		fmt.Print("Pokedex > ")
 		scanner.Scan()
@@ -24,7 +25,6 @@ func StartRepl() {
 		}
 
 		cmdName := words[0]
-
 		if command, ok := commands[cmdName]; ok {
 			command.Callback(&config)
 		} else {

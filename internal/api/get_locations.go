@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mbilaljawwad/pokedexcli/modal"
+	"github.com/mbilaljawwad/pokedexcli/internal/modal"
 )
 
 func GetLocations (url string) ( modal.Locations) {
